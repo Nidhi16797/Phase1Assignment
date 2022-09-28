@@ -11,9 +11,9 @@ public class Proj {
     File file_name;
     
     private static final String WELCOME_STRING =
-            "\n******************  LockedMe.com  *************************\n"
-    +"\n*********** ProjectName: Virtual Key Repository ***********\n"+
-                    "\n***************** Nidhi Lunagariya ************************\n";
+            "\n**************************   Welcome   ***************************\n"
+    +"\n***************** ApplicationName: LockedMe.com *****************\n"+
+                    "\n*********************** Nidhi Lunagariya ************************\n";
 
     private static final String MAIN_MENU_STRING =
             "\nMain Menu - Choose your option: \n"+
