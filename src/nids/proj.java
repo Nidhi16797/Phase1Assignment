@@ -1,6 +1,9 @@
 package nids;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Proj {
@@ -32,6 +35,108 @@ public class Proj {
         
     }
     
+    void showNestedMenu() {
+        System.out.println(NESTED_MENU_STRING);
+        try{
+            Scanner scanner = new Scanner(System.in);
+            char[] choose_value = scanner.nextLine().toLowerCase().trim().toCharArray();
+            char option = choose_value[0];
+
+            switch (option){
+                case '1' : {
+                    System.out.print("Please Enter a File Name you want to add : ");
+                    String fname = scanner.next().trim().toLowerCase();
+                    addFile(fname);
+                    break;
+                }
+                case '2' : {
+                    System.out.print("Please Enter a File Name you want to delete : ");
+                    String fname = scanner.next().trim();
+                    deleteFile(fname);
+                    break;
+                }
+                case '3' : {
+                    System.out.print("Please Enter a File Name you want to search : ");
+                    String fname = scanner.next().trim();
+                    searchFile(fname);
+                    break;
+                }
+                case '4' : {
+                    System.out.println("GoBack to Main Menu");
+                    showMainMenu();
+                    break;
+                }
+                default : System.out.println("Please Enter 1, 2, 3 or 4");
+            }
+            showNestedMenu();
+        }
+        catch (Exception e){
+            System.out.println("Please enter 1, 2, 3 or 4");
+            showNestedMenu();
+        }
+    }
+
+    void showFilesAscendingOrder() {
+    	if (file_name.list().length==0)
+    		System.out.println("The folder is empty");
+    	else {
+    		File[] files = file_name.listFiles();
+    		Arrays.sort(files, new Comparator()
+    		{
+    			@Override
+    			public int compare(Object f1, Object f2) {
+    				return ((File) f1).getName().compareTo(((File) f2).getName());
+    			}
+    		});
+    		
+    		System.out.println("\nSorting by name..\n");
+    		//  print the file name in accending order.
+    		for(File file:files)
+    		{
+    			System.out.println(file.getName());
+    		}
+    		
+    	}
+    }
+
+    void addFile(String fname) throws IOException {
+        File file_path = new File(file_name +"/"+fname);
+        String[] list = file_name.list();
+        for (String file: list) {
+            if (fname.equalsIgnoreCase(file)) {
+                System.out.println("File " + fname + " already exists at " + file_name);
+                return;
+            }
+        }
+        file_path.createNewFile();
+        System.out.println("File "+fname+" added to "+ file_name);
+    }
+
+    void deleteFile(String fname) {
+        File file_path = new File(file_name +"/"+fname);
+        String[] list = file_name.list();
+        for (String file: list) {
+            if (fname.equals(file) && file_path.delete()) {
+                System.out.println("File " + fname + " deleted from " + file_name);
+                return;
+            }
+        }
+        System.out.println("FILE NOT FOUND (FNF)\nPlease enter existing file name..");
+    }
+
+    void searchFile(String fname) {
+        String[] list = file_name.list();
+        for (String file: list) {
+            if (fname.equals(file)) {
+                System.out.println("FOUND : File " + fname + " exists at " + file_name);
+                return;
+            }
+        }
+        System.out.println("File NOT found (FNF)\nPlease enter existing file name..");
+    }
+
+   
+    
     void showMainMenu() {
         System.out.println(MAIN_MENU_STRING);
         try{
@@ -39,17 +144,22 @@ public class Proj {
             int option = scanner.nextInt();
             switch (option){
                 case 1 : {
-                   
+                	showFilesAscendingOrder();
+                	showMainMenu();
+                	break;
                 }
                 case 2 : {
-                    
+                    showNestedMenu();
+                    break;
                 }
                 case 3 : {
                     System.out.println("Thanks...");
                     System.exit(0);
+                    break;
                 }
                 default: {
                 	showMainMenu();
+                	
                 }
             }
         }
@@ -61,6 +171,7 @@ public class Proj {
     
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		System.out.println(WELCOME_STRING);
 		Proj proj=new Proj();
 		proj.showMainMenu();
 		
