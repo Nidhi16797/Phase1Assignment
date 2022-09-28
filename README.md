@@ -5,10 +5,10 @@ Simple Java Console based program to allows user to input menu options for
 
 * Displaying File/Folder structure. 
 * Display the user interface.
-    *Add a file
-    *Delete a file
-    *Search a file
-    *GoBack
+    * Add a file
+    * Delete a file
+    * Search a file
+    * GoBack
 * Exit Program.
 
 ## View project locally
