@@ -84,4 +84,4 @@ Implemented the concepts such as exceptions, collections, and sorting techniques
 
 * Search and Sort techniques: Data structures used for the project
 
-* Specification document: Google Docs
+* Specification document: Flow chart of application
