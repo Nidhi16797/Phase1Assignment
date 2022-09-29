@@ -5,10 +5,10 @@ Simple Java Console based program to allows user to input menu options for
 
 * Displaying File/Folder structure. 
 * Display the user interface.
-    *Add a file
-    *Delete a file
-    *Search a file
-    *GoBack
+    * Add a file
+    * Delete a file
+    * Search a file
+    * GoBack
 * Exit Program.
 
 ## View project locally
@@ -70,3 +70,18 @@ Code designed to display the welcome screen. It displays:
 * There is a third option to close the application.
 
 Implemented the concepts such as exceptions, collections, and sorting techniques for source code optimization and increased performance 
+
+## Technologies used in project
+* Eclipse/IntelliJ: An IDE to code for the application
+
+* Java: A programming language to develop the prototype
+
+* Git: To connect and push files from the local system to GitHub
+
+* GitHub: To store the application code and track its versions
+
+* Scrum: An efficient agile framework to deliver the product incrementally
+
+* Search and Sort techniques: Data structures used for the project
+
+* Specification document: Flow chart of application
